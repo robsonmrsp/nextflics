@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import TableApplication from "@/components/PageSessions/TableApplication";
 import BasicPanel from "@/components/panels/basic/BasicPanel";
+import DataTable from "@/components/table/DataTable";
 
 // TODO separar isso e levar para um serviçõ a parte
 // TODO podemos iniciar com tipos nesses componentes e ver no que dá, mas antes temos que fazer funcionar sem o typescripto!
@@ -45,13 +45,13 @@ const ListMovies = () => {
   });
 
   return (
-    <BasicPanel panelName={"List de aplicações"}>
-      <TableApplication
+    <BasicPanel panelName={"List of Movies"}>
+      <DataTable
         onChangePager={(newPagerRequest) => setPagerRequest(newPagerRequest)}
         pager={pager}
         pagerRequest={pagerRequest}
         fetching={isFetching}
-      ></TableApplication>
+      ></DataTable>
     </BasicPanel>
   );
 };
