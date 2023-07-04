@@ -8,7 +8,7 @@ import {
 
 const ColumnHeader = ({
   children,
-  columnDefinitionItem,
+  column,
   order,
   orderBy,
   onchangeOrder,
@@ -17,10 +17,10 @@ const ColumnHeader = ({
   const toggle = () => {
     if (!direction) {
       setDirection("asc");
-      onchangeOrder({ order: "asc", orderBy: columnDefinitionItem.name });
+      onchangeOrder({ order: "asc", orderBy: column.name });
     } else if (direction === "asc") {
       setDirection("desc");
-      onchangeOrder({ order: "desc", orderBy: columnDefinitionItem.name });
+      onchangeOrder({ order: "desc", orderBy: column.name });
     } else if (direction === "desc") {
       setDirection("");
       onchangeOrder({ order: "", orderBy: "" });
@@ -33,18 +33,18 @@ const ColumnHeader = ({
           className="justify-items-start px-1 cursor-pointer"
           onClick={() => toggle()}
         >
-          {columnDefinitionItem.label || columnDefinitionItem.name}
+          {column.label || column.name}
         </span>
 
-        {orderBy === columnDefinitionItem.name && (
+        {orderBy === column.name && (
           <div className="justify-items-stretch relative pt-0.5 pl-1 text-coolGray-400 cursor-pointer">
             {direction === "asc" ? (
-              columnDefinitionItem.type === "number" ? (
+              column.type === "number" ? (
                 <FcNumericalSorting12 size={18} />
               ) : (
                 <FcAlphabeticalSortingAz size={18} />
               )
-            ) : columnDefinitionItem.type === "number" ? (
+            ) : column.type === "number" ? (
               <FcNumericalSorting21 size={18} />
             ) : (
               <FcAlphabeticalSortingZa size={18} />

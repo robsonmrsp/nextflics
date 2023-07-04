@@ -44,6 +44,27 @@ const ListMovies = () => {
     staleTime: 5000,
   });
 
+  const columns = [
+    { name: "id", type: "number" },
+    { name: "title", label: "Título", type: "string" },
+    {
+      name: "budget",
+      label: "Orçamento",
+      type: "number",
+      formatter: (number) => `R$ ${number},00`,
+    },
+    { name: "homepage", type: "string" },
+    { name: "overview", label: "Sinópse", type: "string" },
+    { name: "popularity", label: "Popularidade", type: "string" },
+    { name: "releaseDate", label: "Lançamento", type: "string" },
+    {
+      name: "revenue",
+      label: "Receita",
+      type: "number",
+      formatter: (number) => `R$ ${number},00`,
+    },
+  ];
+
   return (
     <BasicPanel panelName={"List of Movies"}>
       <DataTable
@@ -51,6 +72,7 @@ const ListMovies = () => {
         pager={pager}
         pagerRequest={pagerRequest}
         fetching={isFetching}
+        columns={columns}
       ></DataTable>
     </BasicPanel>
   );

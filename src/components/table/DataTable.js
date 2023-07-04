@@ -8,7 +8,7 @@ const DataTable = ({
   onChangePager,
   pagerRequest,
   fetching,
-  columnDefinition,
+  columns,
 }) => {
   const [pagerState, setPagerState] = useState(pagerRequest);
 
@@ -44,77 +44,48 @@ const DataTable = ({
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700   uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-800 ">
                 <tr>
-                  <th
-                    scope="col"
-                    className="px-5 py-3 text-sm  text-left text-gray-800 uppercase bg-white border-b border-gray-200 "
-                  >
-                    <ColumnHeader
-                      columnDefinitionItem={{
-                        name: "id",
-                        label: "ID",
-                        type: "number",
-                      }}
-                      order={pagerRequest.order}
-                      orderBy={pagerRequest.orderBy}
-                      onchangeOrder={({ order, orderBy }) =>
-                        onChangePager({ ...pagerRequest, order, orderBy })
-                      }
-                    />
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-5 py-3 text-sm  text-left text-gray-800 uppercase bg-white border-b border-gray-200"
-                  >
-                    <ColumnHeader
-                      columnDefinitionItem={{
-                        name: "title",
-                        label: "Título",
-                        type: "String",
-                      }}
-                      order={pagerRequest.order}
-                      orderBy={pagerRequest.orderBy}
-                      onchangeOrder={({ order, orderBy }) =>
-                        onChangePager({ ...pagerRequest, order, orderBy })
-                      }
-                    />
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-5 py-3 text-sm  text-left text-gray-800 uppercase bg-white border-b border-gray-200"
-                  >
-                    <span className="flex flex-1">
-                      <span className="justify-items-start">status </span>
-                    </span>
-                  </th>
+                  {columns?.map((column) => {
+                    return (
+                      <th
+                        scope="col"
+                        className="px-5 py-3 text-sm  text-left text-gray-800 uppercase bg-white border-b border-gray-200 "
+                      >
+                        <ColumnHeader
+                          column={column}
+                          order={pagerRequest.order}
+                          orderBy={pagerRequest.orderBy}
+                          onchangeOrder={({ order, orderBy }) =>
+                            onChangePager({ ...pagerRequest, order, orderBy })
+                          }
+                        />
+                      </th>
+                    );
+                  })}
                 </tr>
               </thead>
               <tbody>
                 {items?.map((item) => (
                   <tr key={item.id}>
-                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                      <div className="flex items-center">
-                        <div className="flex-shrink-0"></div>
-                        <div className="">
-                          <p className="text-gray-900 whitespace-no-wrap">
-                            {item.id}
-                          </p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                      <p className="text-gray-900 whitespace-no-wrap">
-                        {item.title}
-                      </p>
-                    </td>
-                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                      <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                        <span
-                          aria-hidden="true"
-                          className="absolute inset-0 bg-green-200 rounded-full opacity-50"
-                        ></span>
-                        <span className="relative"> fancy cmponent here</span>
-                      </span>
-                    </td>
+                    {columns?.map((column) => {
+                      return (
+                        <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                          <div className="flex items-center">
+                            <div className="flex-shrink-0"></div>
+                            <div className="">
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {column.Cell ? (
+                                  <Cell item={item} />
+                                ) : column.formatter ? (
+                                  column.formatter(item[column.name])
+                                ) : (
+                                  item[column.name]
+                                )}
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>
