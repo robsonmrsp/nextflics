@@ -53,9 +53,9 @@ const ListMovies = () => {
       type: "number",
       formatter: (number) => `R$ ${number},00`,
     },
-    { name: "homepage", type: "string" },
+    // { name: "homepage", type: "string" },
     { name: "overview", label: "Sinópse", type: "string" },
-    { name: "popularity", label: "Popularidade", type: "string" },
+    // { name: "popularity", label: "Popularidade", type: "number" },
     { name: "releaseDate", label: "Lançamento", type: "string" },
     {
       name: "revenue",

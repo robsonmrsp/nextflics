@@ -66,19 +66,19 @@ const DataTable = ({
               <tbody>
                 {items?.map((item) => (
                   <tr key={item.id}>
-                    {columns?.map((column) => {
+                    {columns?.map(({ name, formatter, Cell }) => {
                       return (
                         <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                           <div className="flex items-center">
                             <div className="flex-shrink-0"></div>
                             <div className="">
                               <p className="text-gray-900 whitespace-no-wrap">
-                                {column.Cell ? (
-                                  <Cell item={item} />
-                                ) : column.formatter ? (
-                                  column.formatter(item[column.name])
+                                {Cell ? (
+                                  <Cell item={item} attribute={name} />
+                                ) : formatter ? (
+                                  formatter(item[name])
                                 ) : (
-                                  item[column.name]
+                                  item[name]
                                 )}
                               </p>
                             </div>
@@ -114,7 +114,6 @@ const DataTable = ({
                 />
               </div>
             </div>
-
             <div className="flex items-center"></div>
           </div>
         </div>
