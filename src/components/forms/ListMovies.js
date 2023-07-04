@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import TableApplication from "@/components/PageSessions/TableApplication";
 import BasicPanel from "@/components/panels/basic/BasicPanel";
 
+// TODO separar isso e levar para um serviçõ a parte
+// TODO podemos iniciar com tipos nesses componentes e ver no que dá, mas antes temos que fazer funcionar sem o typescripto!
 const getPagerMovies = async (pagerRequest) => {
   const { page = 1, pageSize = 5, order, orderBy } = pagerRequest;
   let url = "http://localhost:8081/rs/crud/movies";

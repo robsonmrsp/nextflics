@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import TablePagination from "@/components/table/Pagination";
-import TableCounter from "@/components/table/Counter";
-import SortedLabel from "@/components/table/SortedLabel";
+import TablePagination from "@/components/table/components/Pagination";
+import TableCounter from "@/components/table/components/Counter";
+import SortedLabel from "@/components/table/components/SortedLabel";
 
-const TableApplication = ({
+const DataTable = ({
   pager = {},
   onChangePager,
   pagerRequest,
@@ -151,9 +151,4 @@ const TableApplication = ({
     </div>
   );
 };
-// "actualPage": 1,
-// "totalRecords": 4803,
-// "pageSize": 10,
-// "orderBy": "",
-// "order": ""
-export default TableApplication;
+export default DataTable;
