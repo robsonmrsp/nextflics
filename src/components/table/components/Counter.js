@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Counter({ initialPageSize, onChangeCounter }) {
+const Counter = ({ initialPageSize, onChangeCounter }) => {
   const [selectedOption, setSelectedOption] = useState(initialPageSize);
 
   const onChangeSelectOption = (e) => {
@@ -29,6 +29,6 @@ function Counter({ initialPageSize, onChangeCounter }) {
       </label>
     </div>
   );
-}
+};
 
 export default Counter;

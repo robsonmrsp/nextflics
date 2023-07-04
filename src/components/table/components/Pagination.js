@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
-function range(size, startAt = 0) {
+const range = (size, startAt = 0) => {
   return [...Array(size).keys()].map((i) => i + startAt);
-}
+};
 
-function Pagination({
+const Pagination = ({
   actualPage = 1,
   pageSize = 10,
   totalRecords = 1,
   onChangePageNumber,
-}) {
+}) => {
   const totalPages = Math.ceil(totalRecords / pageSize);
+  // create last and first
   const lastPage = actualPage + 5 <= totalPages ? actualPage + 5 : totalPages;
   const pageNumberToShow = range(
     5,
@@ -35,7 +36,7 @@ function Pagination({
             <button
               key={pageNumber}
               className={
-                pageNumber === actualPage     
+                pageNumber === actualPage
                   ? "join-item btn btn-md btn-neutral"
                   : "join-item btn btn-md "
               }
@@ -59,6 +60,6 @@ function Pagination({
       </div>
     </div>
   );
-}
+};
 
 export default Pagination;

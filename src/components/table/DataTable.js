@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TablePagination from "@/components/table/components/Pagination";
-import TableCounter from "@/components/table/components/Counter";
-import SortedLabel from "@/components/table/components/SortedLabel";
+import Pagination from "@/components/table/components/Pagination";
+import Counter from "@/components/table/components/Counter";
+import ColumnHeader from "@/components/table/components/ColumnHeader";
 
 const DataTable = ({
   pager = {},
@@ -20,7 +20,7 @@ const DataTable = ({
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg grid grid-cols-1 divide-y ">
             <div className="grid grid-cols-2  bg-white p-1 rounded pb-2 text-gray-900">
               <div className="justify-items-start">
-                <TableCounter
+                <Counter
                   initialPageSize={pager.pageSize}
                   onChangeCounter={(newPageSize) =>
                     onChangePager({ ...pagerRequest, pageSize: newPageSize })
@@ -48,7 +48,7 @@ const DataTable = ({
                     scope="col"
                     className="px-5 py-3 text-sm  text-left text-gray-800 uppercase bg-white border-b border-gray-200 "
                   >
-                    <SortedLabel
+                    <ColumnHeader
                       columnDefinitionItem={{
                         name: "id",
                         label: "ID",
@@ -65,7 +65,7 @@ const DataTable = ({
                     scope="col"
                     className="px-5 py-3 text-sm  text-left text-gray-800 uppercase bg-white border-b border-gray-200"
                   >
-                    <SortedLabel
+                    <ColumnHeader
                       columnDefinitionItem={{
                         name: "title",
                         label: "Título",
@@ -132,7 +132,7 @@ const DataTable = ({
                 </div>
               </div>
               <div className="grid justify-items-end">
-                <TablePagination
+                <Pagination
                   actualPage={pager.actualPage}
                   pageSize={pager.pageSize}
                   totalRecords={pager.totalRecords}

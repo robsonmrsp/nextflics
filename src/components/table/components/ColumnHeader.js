@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import {
-  AiOutlineSortDescending,
-  AiOutlineSortAscending,
-} from "react-icons/ai";
-import {
   FcNumericalSorting12,
   FcNumericalSorting21,
   FcAlphabeticalSortingAz,
   FcAlphabeticalSortingZa,
 } from "react-icons/fc";
 
-function SortedLabel({
+const ColumnHeader = ({
   children,
   columnDefinitionItem,
   order,
   orderBy,
   onchangeOrder,
-}) {
+}) => {
   const [direction, setDirection] = useState(order);
   const toggle = () => {
     if (!direction) {
@@ -58,6 +54,6 @@ function SortedLabel({
       </span>
     </div>
   );
-}
+};
 
-export default SortedLabel;
+export default ColumnHeader;
