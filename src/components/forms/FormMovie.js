@@ -50,8 +50,6 @@ export default function FormMovie() {
               </div>
 
               <hr className="mt-6 border-b-1 border-blueGray-300" />
-
-              <hr className="mt-6 border-b-1 border-blueGray-300" />
               <div className="flex space justify-start py-8 col-span-6">
                 <div className="pr-2">
                   <button className="btn btn-outline btn-primary">Save</button>
