@@ -21,8 +21,6 @@ const getPagerMovies = async (pagerRequest) => {
   if (orderBy) {
     url = url + `&orderBy=${orderBy}`;
   }
-  console.log("pagerRequest: ", pagerRequest);
-  console.log("url: ", url);
   const headers = { Authorization: "Basic anNldHVwOjEyMzQ1Ng==" };
   const res = await fetch(url, { headers });
   const pager = await res.json();
@@ -73,7 +71,7 @@ const ListMovies = () => {
         pagerRequest={pagerRequest}
         fetching={isFetching}
         columns={columns}
-      ></DataTable>
+      />
     </BasicPanel>
   );
 };

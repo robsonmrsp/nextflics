@@ -1,12 +1,12 @@
-import React from 'react';
-import FormApplication from '@/components/forms/FormApplication';
+import React from "react";
+import FormMovie from "@/components/forms/FormMovie";
 
-function CreateProject() {
+function CreateMovie() {
   return (
     <>
-      <FormApplication />
+      <FormMovie />
     </>
-  )
+  );
 }
 
-export default CreateProject
+export default CreateMovie;

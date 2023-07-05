@@ -1,8 +1,8 @@
-"use client"
-import React from 'react'
-import { Formik, Form, Field } from 'formik';
+"use client";
+import React from "react";
+import { Formik, Form, Field } from "formik";
 
-import BasicPanel from '@/components/panels/basic/BasicPanel'
+import BasicPanel from "@/components/panels/basic/BasicPanel";
 
 export default function FormApplication() {
   return (
@@ -10,26 +10,26 @@ export default function FormApplication() {
       <BasicPanel panelName={"Cadastro de aplicação"}>
         <Formik
           initialValues={{
-            "name": "vendemais",
-            "view": "REACT16",
-            "skin": "mui",
-            "description": "teste",
-            "rootPackage": "br.com.vendemais",
-            "corePackage": "br.com.vendemais.core",
-            "useAudit": true,
-            "useDocRestApi": false,
-            "multitenancy": true,
-            "generateTest": true,
-            "asModule": false,
-            "criteriaType": "JPA",
-            "configurationType": "JAVA",
-            "applicationType": "MVC",
+            name: "vendemais",
+            view: "REACT16",
+            skin: "mui",
+            description: "teste",
+            rootPackage: "br.com.vendemais",
+            corePackage: "br.com.vendemais.core",
+            useAudit: true,
+            useDocRestApi: false,
+            multitenancy: true,
+            generateTest: true,
+            asModule: false,
+            criteriaType: "JPA",
+            configurationType: "JAVA",
+            applicationType: "MVC",
           }}
           onSubmit={(values, actions) => {
             // actions.setSubmitting
             // actions.resetForm
-            console.log(values)
-            console.log(actions)
+            console.log(values);
+            console.log(actions);
           }}
         >
           {({ values, errors, isSubmitting }) => (
@@ -46,7 +46,12 @@ export default function FormApplication() {
                     >
                       Name
                     </label>
-                    <Field id="name" name="name" placeholder="app name" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                    <Field
+                      id="name"
+                      name="name"
+                      placeholder="app name"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    />
                   </div>
                 </div>
                 <div className="w-full lg:w-12/12 px-4">
@@ -57,7 +62,13 @@ export default function FormApplication() {
                     >
                       Description
                     </label>
-                    <Field id="description" as={"textarea"} name="description" placeholder="app name" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                    <Field
+                      id="description"
+                      as={"textarea"}
+                      name="description"
+                      placeholder="app name"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    />
                   </div>
                 </div>
 
@@ -69,8 +80,12 @@ export default function FormApplication() {
                     >
                       Core Package
                     </label>
-                    <Field id="corePackage" name="corePackage" placeholder="app name" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
-
+                    <Field
+                      id="corePackage"
+                      name="corePackage"
+                      placeholder="app name"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    />
                   </div>
                 </div>
                 <div className="w-full lg:w-6/12 px-4">
@@ -81,7 +96,12 @@ export default function FormApplication() {
                     >
                       Root Package
                     </label>
-                    <Field id="rootPackage" name="rootPackage" placeholder="com.c3pgen" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                    <Field
+                      id="rootPackage"
+                      name="rootPackage"
+                      placeholder="com.c3pgen"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    />
                   </div>
                 </div>
               </div>
@@ -94,7 +114,12 @@ export default function FormApplication() {
               <div className="flex w-full  px-4">
                 <div className="relative w-full mb-3">
                   <label className="inline-flex items-center cursor-pointer">
-                    <Field type="checkbox" name="multitenancy" value={false} className="form-checkbox border-0 rounded text-blueGray-700 mr-2 w-5 h-5 ease-linear transition-all duration-150" />
+                    <Field
+                      type="checkbox"
+                      name="multitenancy"
+                      value={false}
+                      className="form-checkbox border-0 rounded text-blueGray-700 mr-2 w-5 h-5 ease-linear transition-all duration-150"
+                    />
                     <span className="block uppercase text-blueGray-600 text-xs font-bold mb-0">
                       Multitenancy
                     </span>
@@ -102,7 +127,11 @@ export default function FormApplication() {
                 </div>
                 <div className="relative w-full mb-3">
                   <label className="inline-flex items-center cursor-pointer">
-                    <Field type="checkbox" name="useDocRestApi" className="form-checkbox border-0 rounded text-blueGray-700 mr-2 w-5 h-5 ease-linear transition-all duration-150" />
+                    <Field
+                      type="checkbox"
+                      name="useDocRestApi"
+                      className="form-checkbox border-0 rounded text-blueGray-700 mr-2 w-5 h-5 ease-linear transition-all duration-150"
+                    />
                     <span className="block uppercase text-blueGray-600 text-xs font-bold mb-0">
                       Generate Docs
                     </span>
@@ -110,7 +139,11 @@ export default function FormApplication() {
                 </div>
                 <div className="relative w-full mb-3">
                   <label className="inline-flex items-center cursor-pointer">
-                    <Field type="checkbox" name="generateTest" className="form-checkbox border-0 rounded text-blueGray-700 mr-2 w-5 h-5 ease-linear transition-all duration-150" />
+                    <Field
+                      type="checkbox"
+                      name="generateTest"
+                      className="form-checkbox border-0 rounded text-blueGray-700 mr-2 w-5 h-5 ease-linear transition-all duration-150"
+                    />
                     <span className="block uppercase text-blueGray-600 text-xs font-bold mb-0">
                       Generate Tests
                     </span>
@@ -118,7 +151,11 @@ export default function FormApplication() {
                 </div>
                 <div className="relative w-full mb-3">
                   <label className="inline-flex items-center cursor-pointer">
-                    <Field type="checkbox" name="useAudit" className="form-checkbox border-0 rounded text-blueGray-700 mr-2 w-5 h-5 ease-linear transition-all duration-150" />
+                    <Field
+                      type="checkbox"
+                      name="useAudit"
+                      className="form-checkbox border-0 rounded text-blueGray-700 mr-2 w-5 h-5 ease-linear transition-all duration-150"
+                    />
                     <span className="block uppercase text-blueGray-600 text-xs font-bold mb-0">
                       Use Audit
                     </span>
