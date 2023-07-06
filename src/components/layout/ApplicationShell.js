@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "./NavBar";
 import Sidebar from "./Sidebar";
 import Body from "./Body";
+import Footer from "./Footer";
 
 function ApplicationShell({ children }) {
   return (
@@ -10,6 +11,7 @@ function ApplicationShell({ children }) {
       <Navbar />
       <Sidebar />
       <Body>{children}</Body>
+      <Footer>{children}</Footer>
     </div>
   );
 }
