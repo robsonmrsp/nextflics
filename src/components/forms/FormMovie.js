@@ -8,7 +8,8 @@ export default function FormMovie() {
   return (
     <>
       <BasicPanel panelName={"Cadastro de Movie"}>
-        <Formik
+        Hello worlds
+        {/*        <Formik
           initialValues={{
             id: "",
             title: "",
@@ -32,7 +33,7 @@ export default function FormMovie() {
               </h6>
               <div>
                 <label
-                  for="hs-validation-name-error"
+                  htmlFor="hs-validation-name-error"
                   className="block text-sm font-medium mb-2 dark:text-white"
                 >
                   Email
@@ -69,7 +70,7 @@ export default function FormMovie() {
 
               <div>
                 <label
-                  for="hs-validation-name-success"
+                  htmlFor="hs-validation-name-success"
                   className="block text-sm font-medium mb-2 dark:text-white"
                 >
                   Email
@@ -105,7 +106,7 @@ export default function FormMovie() {
               </div>
               <div>
                 <label
-                  for="hs-validation-name-error"
+                  htmlFor="hs-validation-name-error"
                   className="block text-sm font-medium mb-2 dark:text-white"
                 >
                   Email
@@ -157,6 +158,7 @@ export default function FormMovie() {
                     />
                   </div>
                 </div>
+                <hr className="mt-6 border-b-1 border-blueGray-300" />
               </div>
 
               <hr className="mt-6 border-b-1 border-blueGray-300" />
@@ -172,7 +174,7 @@ export default function FormMovie() {
               </div>
             </Form>
           )}
-        </Formik>
+        </Formik> */}
       </BasicPanel>
     </>
   );
