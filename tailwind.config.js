@@ -3,8 +3,9 @@ const plugin = require("tailwindcss/plugin");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
+  darkMode: "class",
   content: [
-    'node_modules/preline/dist/*.js',
+    "node_modules/preline/dist/*.js",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -87,10 +88,15 @@ module.exports = {
     "disabled",
   ],
   // Re
-  plugins: [require("@tailwindcss/typography"), require("daisyui"),require('preline/plugin')],
-  daisyui: {
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+    // require("daisyui"),
+    require("preline/plugin"),
+  ],
+  daisyui_: {
     themes: true, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
-    darkTheme: "light", // name of one of the included themes for dark mode
+    darkTheme: "dark", // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
     utils: true, // adds responsive and modifier utility classes
@@ -99,4 +105,3 @@ module.exports = {
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
   },
 };
-
