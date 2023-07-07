@@ -9,6 +9,7 @@ import Sidebar from "@/components/Sidebar/Sidebar.js";
 import HeaderStats from "@/components/Headers/HeaderStats.js";
 import FooterAdmin from "@/components/Footers/FooterAdmin.js";
 import Providers from "@/contexts/react-query/Providers";
+import { GlobalContextProvider } from "@/contexts/GlobalContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <GlobalContextProvider>
+          <Providers>{children}</Providers>
+        </GlobalContextProvider>
       </body>
     </html>
   );

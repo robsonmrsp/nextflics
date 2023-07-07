@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 function ApplicationShell({ children }) {
   return (
-    <div className="antialiased bg-gray-50 dark:bg-gray-900">
+    <div className="antialiased bg-gray-50 dark:bg-gray-900 grid-cols-sidebar-collapsed">
       <Navbar />
       <Sidebar />
       <Body>{children}</Body>

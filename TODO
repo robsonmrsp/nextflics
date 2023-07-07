@@ -1,2 +1,4 @@
 
 - Criar o footer fixo
+- controlar a abertura do sidebar a partir do navbar
+  https://codesandbox.io/s/react-with-tailwinds-drawer-bjbfr?file=/src/Header.js

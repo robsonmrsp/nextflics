@@ -1,10 +1,22 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import NavButton from "./internal/NavButton";
 import UserMenu from "./internal/UserMenu";
 import MegaMenu from "./internal/MegaMenu";
 import NotificationMenu from "./internal/NotificationMenu";
+import { useGlobalContext } from "@/contexts/GlobalContext";
 
 function NavBar() {
+  const { state, closeDrawer, openDrawer, toggleDrawer } = useGlobalContext();
+  useEffect(() => {
+    // console.log("drawer open", state.drawerOpened);
+    // closeDrawer();
+  }, []);
+
+  useEffect(() => {
+    // console.log("drawer open", state.drawerOpened);
+  }, [state]);
+
   return (
     <nav className="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
       <session className="flex flex-wrap justify-between items-center">
@@ -13,6 +25,7 @@ function NavBar() {
             data-drawer-target="drawer-navigation"
             data-drawer-toggle="drawer-navigation"
             aria-controls="drawer-navigation"
+            onClick={() => toggleDrawer()}
             className="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
           >
             <svg
