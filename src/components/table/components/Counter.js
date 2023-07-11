@@ -16,7 +16,7 @@ const Counter = ({ initialPageSize, onChangeCounter }) => {
         <select
           value={selectedOption}
           onChange={(e) => onChangeSelectOption(e)}
-          className="select select-bordered select-sm  max-w-xs"
+          className="select select-bordered   max-w-xs"
         >
           <option value="5">5</option>
           <option value="10">10</option>

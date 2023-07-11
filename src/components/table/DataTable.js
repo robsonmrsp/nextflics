@@ -18,7 +18,7 @@ const DataTable = ({
       <div className="container w-full p-4 my-4 bg-white rounded">
         <div className="overflow-x-auto ">
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg grid grid-cols-1 divide-y ">
-            <div className="grid grid-cols-2  bg-white p-1 rounded pb-2 text-gray-900">
+            <div className="grid grid-cols-2  bg-white p-2 rounded pb-3 text-gray-900">
               <div className="justify-items-start">
                 <Counter
                   initialPageSize={pager.pageSize}
@@ -34,7 +34,7 @@ const DataTable = ({
                     <input
                       type="text"
                       placeholder="Digite aqui sua pesquisa"
-                      className="input sm:w-64 md:w-80 lg:w-96 input-sm input-bordered input- mx-w-fit"
+                      className="input sm:w-64 md:w-80 lg:w-96  input-bordered input- mx-w-fit"
                     />
                   </label>
                 </div>

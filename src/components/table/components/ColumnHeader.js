@@ -5,7 +5,6 @@ import {
   FcAlphabeticalSortingAz,
   FcAlphabeticalSortingZa,
 } from "react-icons/fc";
-
 const ColumnHeader = ({
   children,
   column,
