@@ -15,7 +15,7 @@ const DataTable = ({
   const { items } = pager;
   return (
     <div>
-      <div className="container w-full p-4 my-4 bg-white rounded">
+      <div className=" w-full p-4 my-4 bg-white rounded">
         <div className="overflow-x-auto ">
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg grid grid-cols-1 divide-y ">
             <div className="grid grid-cols-2  bg-white p-2 rounded pb-3 text-gray-900">

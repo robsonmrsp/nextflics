@@ -9,7 +9,7 @@ import HydrateClient from "@/contexts/react-query/HydrateClient";
 
 const getApplication = async (id) => {
     const headers = { 'Authorization': 'Basic anNldHVwOjEyMzQ1Ng==' };
-    const res = await fetch("http://localhost:8081/rs/crud/movies" + id, { headers });
+    const res = await fetch("http://localhost:8081/rs/crud/movies/" + id, { headers });
     const application = (await res.json());
     return application;
 }
