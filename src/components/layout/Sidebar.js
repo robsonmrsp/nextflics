@@ -2,8 +2,8 @@
 import classNames from "classnames";
 import React from "react";
 import { useGlobalContext } from "@/contexts/GlobalContext";
-import SidebarMenuItem from "./internal/SidebarMenuItem";
-import SidebarMenu from "./internal/SidebarMenuItem";
+import SidebarMenuItem from "./internal/SidebarMenu";
+import SidebarMenu from "./internal/SidebarMenu";
 
 function Sidebar() {
   const { state } = useGlobalContext();

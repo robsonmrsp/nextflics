@@ -20,3 +20,18 @@ export default async function Hydation() {
     </HydrateClient>
   );
 }
+
+
+{
+  "name": "chico",
+  "fantasyName": "chico co",
+  "corporateName": "chico co de novo",
+  "phoneNumber": "55565656787",
+  "email": "chico@chico.com",
+  "companyWebSite": "www.chico.com",
+  "companyLinkedin": "linkkedin.com/inn/chico",
+  "segment": "chocoses",
+  "address": "rua do chico",
+  "observation": "eu sou chico",
+  "howKnewTheProduct": "chico me falou"
+}
