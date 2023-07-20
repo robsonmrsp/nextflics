@@ -129,6 +129,25 @@ export default function FormMovie({ movieId }) {
                 >
                   Rated
                 </label>
+                <Field
+                  className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                  as={"select"}
+                  name="language"
+                  id="language"
+                >
+                  <option selected>Open this select menu</option>
+                  <option value="pt">Portugues</option>
+                  <option value="en">ingles</option>
+                </Field>
+              </div>
+
+              <div className="py-2">
+                <label
+                  htmlFor="rated"
+                  className="block text-sm font-medium mb-2 dark:text-white"
+                >
+                  Rated
+                </label>
                 <div className="flex items-center">
                   <label className="text-sm text-gray-500 mr-3 dark:text-gray-400">
                     Sim
