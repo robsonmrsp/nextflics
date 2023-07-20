@@ -4,16 +4,26 @@ import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { DateField } from "./DateField";
 import { Switch } from "./Switch";
-
 import { useQuery } from "@tanstack/react-query";
 import BasicPanel from "@/components/panels/basic/BasicPanel";
+import HttpRequest from "@/lib/HttpRequest";
 
+
+const httpRequest = new HttpRequest()
 const movieSchema = Yup.object().shape({
   title: Yup.string().required("Deve ser informado um título"),
   budget: Yup.string().required("Deve ser informado um orçamento"),
   overview: Yup.string().required("Required").min(3, "Too Short!"),
 });
 
+const saveMovie = async (movie) => {
+  const headers = { Authorization: "Basic anNldHVwOjEyMzQ1Ng==" };
+  const res = await fetch("http://localhost:8081/rs/crud/movies/" + id, {
+    headers,
+  });
+  const movie = await res.json();
+  return movie;
+};
 const getMovie = async (id) => {
   const headers = { Authorization: "Basic anNldHVwOjEyMzQ1Ng==" };
   const res = await fetch("http://localhost:8081/rs/crud/movies/" + id, {
@@ -22,6 +32,7 @@ const getMovie = async (id) => {
   const movie = await res.json();
   return movie;
 };
+
 export default function FormMovie({ movieId }) {
   const {
     data: movie = {},
@@ -32,6 +43,12 @@ export default function FormMovie({ movieId }) {
     enabled: !!movieId,
     queryKey: ["hydrate-movie-id"],
     queryFn: () => getMovie(movieId),
+  });
+
+  const mutation = useMutation({
+    mutationFn: (movie) => {
+      return saveMovie(movie);
+    },
   });
 
   return (
@@ -50,8 +67,7 @@ export default function FormMovie({ movieId }) {
           }}
           validationSchema={movieSchema}
           onSubmit={(values, actions) => {
-            // actions.setSubmitting
-            // actions.resetForm
+            actions.resetForm();
             console.log(values);
             console.log(actions);
           }}
