@@ -1,5 +1,5 @@
 import React from "react";
-import FormMovie from "@/components/forms/FormMovie";
+import FormMovie from "@/page-sessions/movie/FormMovie";
 
 function CreateMovie() {
   return (

@@ -1,37 +1,34 @@
-"use client";
-import React from "react";
-import * as Yup from "yup";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { DateField } from "./DateField";
-import { Switch } from "./Switch";
-import { useQuery } from "@tanstack/react-query";
-import BasicPanel from "@/components/panels/basic/BasicPanel";
-import HttpRequest from "@/lib/HttpRequest";
+"use client"
+import React from "react"
+import * as Yup from "yup"
+import { Formik, Form, Field, ErrorMessage } from "formik"
+import { useQuery, useMutation } from "@tanstack/react-query"
 
+import { DateField } from "@/components/forms/inputs/DateField"
+import { Switch } from "@/components/forms/inputs/Switch"
+import BasicPanel from "@/components/panels/basic/BasicPanel"
 
-const httpRequest = new HttpRequest()
+import HttpRequest from "@/lib/HttpRequest"
+
+const httpRequest = new HttpRequest("/rs/crud/movies")
+
 const movieSchema = Yup.object().shape({
   title: Yup.string().required("Deve ser informado um título"),
   budget: Yup.string().required("Deve ser informado um orçamento"),
   overview: Yup.string().required("Required").min(3, "Too Short!"),
-});
+})
 
 const saveMovie = async (movie) => {
-  const headers = { Authorization: "Basic anNldHVwOjEyMzQ1Ng==" };
-  const res = await fetch("http://localhost:8081/rs/crud/movies/" + id, {
-    headers,
-  });
-  const movie = await res.json();
-  return movie;
-};
+  const res = await httpRequest.save(movie)
+  const movieRes = await res.data
+  return movieRes
+}
+
 const getMovie = async (id) => {
-  const headers = { Authorization: "Basic anNldHVwOjEyMzQ1Ng==" };
-  const res = await fetch("http://localhost:8081/rs/crud/movies/" + id, {
-    headers,
-  });
-  const movie = await res.json();
-  return movie;
-};
+  const res = await httpRequest.getById(id)
+  const movie = await res.data
+  return movie
+}
 
 export default function FormMovie({ movieId }) {
   const {
@@ -43,13 +40,13 @@ export default function FormMovie({ movieId }) {
     enabled: !!movieId,
     queryKey: ["hydrate-movie-id"],
     queryFn: () => getMovie(movieId),
-  });
+  })
 
   const mutation = useMutation({
     mutationFn: (movie) => {
-      return saveMovie(movie);
+      return saveMovie(movie)
     },
-  });
+  })
 
   return (
     <>
@@ -67,9 +64,8 @@ export default function FormMovie({ movieId }) {
           }}
           validationSchema={movieSchema}
           onSubmit={(values, actions) => {
-            actions.resetForm();
-            console.log(values);
-            console.log(actions);
+            actions.resetForm()
+            mutation.mutate(values)
           }}
         >
           {({ values, errors, isSubmitting }) => (
@@ -151,7 +147,7 @@ export default function FormMovie({ movieId }) {
                   name="language"
                   id="language"
                 >
-                  <option selected>Open this select menu</option>
+                  <option value="">Open this select menu</option>
                   <option value="pt">Portugues</option>
                   <option value="en">ingles</option>
                 </Field>
@@ -164,6 +160,7 @@ export default function FormMovie({ movieId }) {
                 >
                   Rated
                 </label>
+
                 <div className="flex items-center">
                   <label className="text-sm text-gray-500 mr-3 dark:text-gray-400">
                     Sim
@@ -171,7 +168,7 @@ export default function FormMovie({ movieId }) {
                   <Switch
                     name="rated"
                     id="rated"
-                    className="relative shrink-0 w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 border border-transparent ring-1 ring-transparent focus:border-blue-600 focus:ring-blue-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800   before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200"
+                    className="relative shrink-0 w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 rounded-full cursor-pointer transition-colors ease-in-out duration-200 border border-transparent ring-1 ring-transparent focus:border-blue-600 focus:ring-blue-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800   before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200"
                   />
                   <label className="text-sm text-gray-500 ml-3 dark:text-gray-400">
                     Não
@@ -215,5 +212,5 @@ export default function FormMovie({ movieId }) {
         </Formik>
       </BasicPanel>
     </>
-  );
+  )
 }

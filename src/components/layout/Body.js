@@ -9,7 +9,12 @@ function Body({ children }) {
     "p-4 md:ml-64 h-auto pt-20": state.drawerOpened,
     "p-4 h-auto pt-20": !state.drawerOpened,
   });
-  return <main className={sideBarOpen}>{children}</main>;
+
+  return (
+    <main _id="Body" className={sideBarOpen}>
+      {children}
+    </main>
+  );
 }
 
 export default Body;

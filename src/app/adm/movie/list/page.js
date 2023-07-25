@@ -1,10 +1,8 @@
-import React from 'react'
-import ListMovies from '@/components/forms/ListMovies'
+import React from "react";
+import ListMovies from "@/page-sessions/movie/ListMovies";
 
-function ProjectsPage() {
-    return (
-        <ListMovies />
-    )
+function ListPage() {
+  return <ListMovies />;
 }
 
-export default ProjectsPage
+export default ListPage;

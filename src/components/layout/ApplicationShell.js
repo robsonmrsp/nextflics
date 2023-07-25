@@ -16,4 +16,4 @@ function ApplicationShell({ children }) {
   );
 }
 
-export default ApplicationShell;
+export default ApplicationShell

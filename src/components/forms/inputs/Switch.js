@@ -3,10 +3,10 @@ import { useField } from "formik";
 
 export const Switch = ({ ...props }) => {
   const { className } = props;
-  const [field, , { setValue }] = useField(props);
+  const [field, _, { setValue }] = useField(props);
   return (
     <input
-      wrapperClassName={className}
+      className={className}
       {...field}
       {...props}
       type="checkbox"

@@ -8,9 +8,5 @@ import HeaderStats from "@/components/Headers/HeaderStats.js";
 import FooterAdmin from "@/components/Footers/FooterAdmin.js";
 
 export default function Admin({ children }) {
-  return (
-    <ApplicationShell>
-      <div>{children}</div>
-    </ApplicationShell>
-  );
+  return <ApplicationShell _id="ApplicationShell">{children}</ApplicationShell>;
 }

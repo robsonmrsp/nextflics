@@ -1,15 +1,16 @@
 import React from "react";
-import FormMovie from "@/components/forms/FormMovie";
 import { dehydrate } from "@tanstack/query-core";
+
+import FormMovie from "@/page-sessions/movie/FormMovie";
 import getQueryClient from "@/contexts/react-query/getQueryClient";
 import HydrateClient from "@/contexts/react-query/HydrateClient";
+import HttpRequest from "@/lib/HttpRequest";
+
+const httpRequest = new HttpRequest("/rs/crud/movies");
 
 const getMovie = async (id) => {
-  const headers = { Authorization: "Basic anNldHVwOjEyMzQ1Ng==" };
-  const res = await fetch("http://localhost:8081/rs/crud/movies/" + id, {
-    headers,
-  });
-  const movie = await res.json();
+  const res = await httpRequest.getById(id);
+  const movie = await res.data;
   return movie;
 };
 
@@ -30,6 +31,3 @@ const MoviePage = async ({ params }) => {
 };
 
 export default MoviePage;
-
-
-
