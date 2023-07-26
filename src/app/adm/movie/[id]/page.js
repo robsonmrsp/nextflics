@@ -25,7 +25,7 @@ const MoviePage = async ({ params }) => {
 
   return (
     <HydrateClient state={dehydratedState}>
-      <FormMovie movieId={id} />;
+      <FormMovie movieId={id} />
     </HydrateClient>
   );
 };

@@ -1,13 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
 const colors = require("tailwindcss/colors");
-
+// somente será interpretado pelo tailwind e ficará
+// bonito aqueles componentes que estiverem nos caminhos do content
 module.exports = {
   darkMode: "class",
+
   content: [
     "node_modules/preline/dist/*.js",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/page-sessions/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
